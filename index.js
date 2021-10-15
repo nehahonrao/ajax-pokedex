@@ -1,15 +1,4 @@
 const mainScreen = document.querySelector('.main-screen');
-const pokeName = document.querySelector('.poke-name');
-const pokeId = document.querySelector('.poke-id');
-const pokeFrontImage = document.querySelector('.poke-front-image');
-const pokeBackImage = document.querySelector('.poke-back-image');
-const pokeTypeOne = document.querySelector('.poke-type-one');
-const pokeTypeTwo = document.querySelector('.poke-type-two');
-const pokeWeight = document.querySelector('.poke-weight');
-const pokeHeight = document.querySelector('.poke-height');
-const pokeListItems = document.querySelectorAll('.list-item');
-const leftButton = document.querySelector('.left-button');
-const rightButton = document.querySelector('.right-button');
 let res=document.getElementById('res');
 let front_img=document.getElementById('front-img');
 const name=document.getElementById("name");
@@ -22,15 +11,14 @@ const ev_name=document.querySelector(".eval-name1");
 const ev_name1=document.querySelector(".eval-name2");
 const ev_name3=document.querySelector(".eval-name3");
 const ev_name4=document.querySelector(".eval-name4");
-const eval_img1=document.querySelector("#eval-img1");
+const eval_img1=document.getElementById("eval-img1");
 const eval_img2=document.querySelector("#eval-img2");
 const lb1=document.querySelector("#lb1");
 const rb1=document.querySelector("#rb1");
 const lb2=document.querySelector("#lb2");
 const rb2=document.querySelector("#rb2");
-
-
-
+const e1=document.getElementById("e1");
+let ev_n1=document.getElementById("ev-name1");
 
 
 btn.addEventListener("click",getData)
@@ -39,7 +27,6 @@ function getData() {
     let id=document.getElementById("userdata");
     id=id.value;
     console.log(id)
-    // url = 'https://pokeapi.co/api/v2/pokemon/1'
 
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
     .then(response => response.json())
@@ -57,8 +44,9 @@ function getData() {
             ev_name1.textContent= dataSecType['type']['name'];
         }else
         {
-            ev_name1.classList.add("hide");
-            ev_name1.textContent=" ";    
+            ev_name1.textContent=" ";
+            ev_n1.style.visibility="hidden";
+            
         }
       
         const move=data['moves'];
@@ -67,37 +55,61 @@ function getData() {
         lb2.textContent=move[2]['move']['name'];
         rb2.textContent=move[3]['move']['name'];
 
+        const species1=data['species']
+        console.log(species1)
+        const url1=species1['url']
+        console.log(url1)
+       
+    // Fetching URL & Name
 
-        fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}`)
+        fetch(url1)
         .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            const evalu1=data['chain']
-            console.log(evalu1)
-            const species1=evalu1['species']
-            console.log(species1)
-            const speciesname=species1['name']
-            const url1=species1['url']
-            console.log(url1)
-            console.log(speciesname)
-            ev_name3.textContent=speciesname;
-            // ev_name4.textContent=data['species']['name'];
-            eval_img1.src=url1;
-    
-            // fetch(`https://pokeapi.co/api/v2/pokemon/${speciesname}`)
-            // .then(response => response.json())
-            // .then(data => {
-            // // console.log(data);
-            // const final=data['forms']
-            // const fig1=final[0]
-            // eval_img1.src=fig1['url']
-            // console.log(final);
-           
-            // })
-
+       .then(data => {
+           console.log(data)
+           const dis_ev=data['evolves_from_species']
+           const ev1=dis_ev['name']
+        console.log(data['evolves_from_species'])
+        // let ev1=""
+        // if(data['evolves_from_species']){
+        //   ev1= data['evolves_from_species']['name']
+          console.log(ev1)
+          
+        // fetch(`https://pokeapi.co/api/v2/pokemon/${ev1}`)
+        // .then(response => response.json())
+        // .then(data => {
+        //  console.log(data)
+        //  const poke_nav=data['sprites']['front_default']
+        //  console.log(poke_nav)
         
+
+    //    Fetching Image with Name
+
+        fetch(`https://pokeapi.co/api/v2/pokemon/${ev1}`)
+       .then(response => response.json())
+       .then(data => {
+        console.log(data)
+        const poke_nav=data['sprites']['front_default']
+        console.log(poke_nav)
+        eval_img1.src=poke_nav
+        // if(dis_ev==''){
+        //     eval_img1.src=""
+        //     console.log("hello")
+            
+        //    }else{
+        //     eval_img1.src=poke_nav
+        //    }
+         
+
+      
+
+    //    Display evolution Name
+
+        const nav1=data['name']
+        console.log(nav1)
+        ev_name3.textContent=nav1;
+       })
+    })           
 })
 
-})
 }
 

@@ -2,8 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
+}
   
   body {
     display: flex;
@@ -12,20 +11,20 @@
     background: url(/img/wallpaper2you_187118.jpg) ;
   }
   
-  .pokedex {
+   .pokedex {
     align-items: flex-end;
     display: flex;
     height: 650px;
     margin: 50px;
     width: 800px;
     /* margin-bottom: 30px; */
-  }
+  } 
   
   .left-container,
   .right-container {
     border: 5px solid black;
     width: 50%;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
   }
   
   .right-container {
@@ -33,7 +32,7 @@
   }
   
   .left-container {
-    background: #76e0e4;
+    background: #cf519b;
     height: 100%;
     width: calc(50% + 50px);
   }
@@ -47,7 +46,7 @@
   }
   
   .top-section__blue {
-    background: radial-gradient(farthest-corner at 10px 10px, white, #369CD4, #369CD4);
+    background: radial-gradient(farthest-corner at 10px 10px, white, #0edbe2, #369CD4);
     border-radius: 50%;
     border: 2px solid white;
     box-shadow: 0 0 2px 2px rgba(0,0,0,.5);
@@ -116,28 +115,6 @@
     justify-content: space-between;
   }
   
-  /* .poke-name {
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
-  }
-  
-  .poke-id {
-    color: rgba(0,0,0,.5);
-    font-size: 20px;
-  }
-   */
-  /* .screen__image {
-    display: flex;
-    justify-content: space-around;
-  }
-   */
-  /* .poke-front-image,
-  .poke-back-image {
-    height: 96px;
-    width: 96px;
-  }
-   */
   .screen__description {
     display: flex;
     height: 100px;
@@ -156,7 +133,6 @@
   }
   
  
-  
   .info{
     font-size: large;
     font-weight: bold;
@@ -220,7 +196,7 @@
   }
   
   .right-container {
-    background: #76e0e4;
+    background: #cf519b;
     height: calc(100% - 50px);
     padding: 25px;
     width: calc(50% - 50px);
@@ -261,8 +237,9 @@
     padding: 15px 15px 0;
     font-size:xx-large;
     text-align: center;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: white;
+    text-transform: uppercase;
     
   }
 
@@ -277,10 +254,9 @@
   .right-button,.send{
     align-items: center;
     background: #9bb457;
-    border-radius: 3px;
-    border: 5px solid black;
+    border-radius: 10px;
+    border: 3px solid black;
     box-shadow: 0 0 2px 2px rgba(0,0,0,.3);
-    cursor: pointer;
     display: flex;
     font-weight: bold;
     height: 50px;
@@ -293,10 +269,11 @@
   #sub{
     font-size: large;
     font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
   }
   
-  .left-button:hover,
-  .right-button:hover,.send:hover{
+ .send:hover{
     background: white;
   }
   
@@ -309,23 +286,25 @@
   
 .form {
 	height:auto;
-	background: rgb(66, 56, 155);
+	background: rgb(143, 131, 233);
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
 	align-items:center;
 	padding:20px;
-	border-radius: 10px;
-  margin-top: 10px;
+	border-radius: 40px;
+  margin-top: 8px;
   font-size:larger;
   font-weight: bold;
+  /* border-radius: 3px; */
+  border: 5px solid black;
   
     
 }
 
 .form > p {
 	text-align:center;
-	color: white;
+	color: rgb(19, 6, 6);
 	margin-bottom: 10px;
 }
 
@@ -337,6 +316,8 @@
 	outline:none;
 	border-radius: 5px;
   font-size: larger;
+  font-weight: bold;
+ 
  
 }
 #res img
@@ -347,20 +328,12 @@
   display: block;
 }
 
-/* .right-container-bottom{
-  background: #DEDEDE;
-  border: 3px solid black;
-  /* box-shadow: inset 0 0 3px 3px rgba(0,0,0,.3);
-  height: 100px;
-  width:150px;
-  margin-top: 30px;
-}  */
 
 .eval1,.eval2{
   align-items: center;
-  background: #DEDEDE;
-  border-radius: 3px;
-  border: 2px solid black;
+  background: #b6aeae;
+  border-radius: 10px;
+  border: 5px solid black;
   box-shadow: 0 0 2px 2px rgba(0,0,0,.3);
   display: flex;
   font-weight: bold;
@@ -368,12 +341,12 @@
   justify-content: center;
   width: 200px;
   margin-top: 30px;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 .eval-name1,.eval-name2,.eval-name3{
   align-items: center;
   background: #473fbd;
-  border-radius: 3px;
+  border-radius: 10px;
   border: 5px solid black;
   box-shadow: 0 0 2px 2px rgba(0,0,0,.3);
   display: flex;
@@ -382,7 +355,8 @@
   justify-content: center;
   width: 100px;
   margin-top: 20px;
-font-size: large;
+  margin-left: 15px;
+  font-size: large;
   text-transform: uppercase;
   color: #DEDEDE;
 
@@ -397,4 +371,8 @@ font-size: large;
   margin-left: 20px;
   height:40px;
   width: 200px;
+}
+#eval-img1{
+height:90px;
+width:180px;
 }
